@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ProJ</title>
+
+    <!-- Importa a fonte Inter do Google (tipografia moderna e limpa) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset: remove margens e paddings padrão do browser */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fundo escuro que ocupa o ecrã todo */
+        body {
+            background-color: #0a0a0f;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            /* 100% da altura do ecrã */
+            display: flex;
+            /* Ativa o Flexbox */
+            flex-direction: column;
+            /* Elementos em coluna (cima para baixo) */
+            align-items: center;
+            /* Centra horizontalmente */
+            justify-content: center;
+            /* Centra verticalmente */
+        }
+
+        /* O nome ProJ */
+        .logo {
+            font-size: 36px;
+            font-weight: 200;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+
+        /* Botão Enter */
+        .btn-enter {
+            padding: 8px 48px;
+            border: none;
+            background: white;
+            color: #0a0a0f;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Efeito quando o rato passa por cima */
+        .btn-enter:hover {
+            background: rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="logo">ProJ</h1>
+
+    <!-- O botão ao clicar vai para dashboard.html (a próxima página) -->
+    <button class="btn-enter" onclick="window.location.href='claude.html'">
+        Log in
+    </button>
+
+</body>
+
+</html>

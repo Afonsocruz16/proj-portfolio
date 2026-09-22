@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProJ — Histórico de Operações</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/historico.css">
+</head>
+
+<body>
+
+    <!-- ── BARRA LATERAL (SIDEBAR) ── -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-brand">ProJ</h2>
+            <p class="sidebar-sub">Carteira pessoal</p>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="claude.html" class="sidebar-item">
+                <span class="item-text">Vista atual</span>
+            </a>
+
+            <!-- HISTÓRICO ATIVO -->
+            <a href="historico.html" class="sidebar-item active">
+                <span class="item-text">Histórico</span>
+            </a>
+
+            <a href="overview.html" class="sidebar-item">
+                <span class="item-text">Overview</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-footer">
+            <a href="#definicoes" class="sidebar-item settings-item">
+                <span class="item-text">Definições</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── CONTEÚDO PRINCIPAL (DIREITA) ── -->
+    <div class="main-content">
+
+        <!-- CABEÇALHO -->
+        <header class="header">
+            <div class="header-title">
+                <h1>Histórico de Vendas</h1>
+                <p>Registo de todas as posições fechadas, taxas de acerto e lucros realizados.</p>
+            </div>
+        </header>
+
+        <!-- ── 4 KPIS DE TOPO ── -->
+        <section class="kpi-grid">
+            <!-- KPI 1: Lucro Realizado -->
+            <div class="kpi-card">
+                <div class="kpi-label">P/L Realizado Total</div>
+                <div class="kpi-value" id="kpi-lucro-total">0,00 €</div>
+                <div class="kpi-sub" id="kpi-lucro-sub">Lucro acumulado</div>
+            </div>
+
+            <!-- KPI 2: Win Rate -->
+            <div class="kpi-card">
+                <div class="kpi-label">Taxa de Acerto (Win Rate)</div>
+                <div class="kpi-value" id="kpi-win-rate">0%</div>
+                <div class="kpi-sub" id="kpi-win-rate-sub">0 de 0 operações</div>
+            </div>
+
+            <!-- KPI 3: Total Operações -->
+            <div class="kpi-card">
+                <div class="kpi-label">Total de Vendas</div>
+                <div class="kpi-value" id="kpi-total-vendas">0</div>
+                <div class="kpi-sub">Operações finalizadas</div>
+            </div>
+
+            <!-- KPI 4: Melhor Trade -->
+            <div class="kpi-card">
+                <div class="kpi-label">Melhor Operação</div>
+                <div class="kpi-value" id="kpi-melhor-trade">0,00 €</div>
+                <div class="kpi-sub" id="kpi-melhor-trade-sub">-</div>
+            </div>
+        </section>
+
+        <!-- ── DESTAQUES DE TRADES (MEIO) ── -->
+        <section class="trades-highlight-grid">
+            <!-- Card Melhores Trades -->
+            <div class="highlight-card">
+                <div class="card-title">Maiores Ganhos Realizados</div>
+                <div class="highlight-list" id="lista-melhores-trades">
+                </div>
+            </div>
+
+            <!-- Card Piores Trades -->
+            <div class="highlight-card">
+                <div class="card-title">Maiores Perdas</div>
+                <div class="highlight-list" id="lista-piores-trades">
+                </div>
+            </div>
+        </section>
+
+        <!-- ── TABELA DE OPERAÇÕES FECHADAS ── -->
+        <main class="table-container">
+            <div class="table-header-flex">
+                <div class="table-header-title" id="tabela-titulo">Posições Fechadas (Por Ativo)</div>
+                <div class="table-toggle-group">
+                    <button type="button" class="btn-toggle active" id="btn-view-ativos"
+                        onclick="alternarVista('ativos')">
+                        Por Ativo (<span id="contagem-ativos">-</span>)
+                    </button>
+                    <button type="button" class="btn-toggle" id="btn-view-transacoes"
+                        onclick="alternarVista('transacoes')">
+                        Todas as Transações (<span id="contagem-transacoes">-</span>)
+                    </button>
+                </div>
+            </div>
+            <table>
+                <thead id="tabela-historico-thead">
+                    <!-- O cabeçalho ajusta-se dinamicamente à vista ativa -->
+                </thead>
+                <tbody id="tabela-historico-body">
+                    <!-- Linhas inseridas pelo JavaScript -->
+                </tbody>
+            </table>
+        </main>
+
+        <script src="../js/utils.js"></script>
+        <script src="../js/historico.js"></script>
+</body>
+
+</html>

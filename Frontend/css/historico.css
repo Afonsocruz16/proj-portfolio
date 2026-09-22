@@ -1,0 +1,410 @@
+/* ── RESET & CONFIGURAÇÃO GERAL ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    color: #0f172a;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ── BARRA LATERAL (SIDEBAR) ── */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e4e4e7;
+    padding: 36px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.sidebar-brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-sub {
+    font-size: 13px;
+    color: #a1a1aa;
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #71717a;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-item:hover {
+    background-color: #f4f4f5;
+    color: #09090b;
+}
+
+.sidebar-item.active {
+    background-color: #f1f5f9;
+    color: #003125;
+    /* Verde escuro do teu design */
+}
+
+.item-text {
+    flex: 1;
+}
+
+/* Badges da Sidebar */
+.sidebar-badge {
+    background-color: #ef4444;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-badge-neutral {
+    background-color: #e4e4e7;
+    color: #71717a;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: #e4e4e7;
+    margin: 20px 0;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* ── CONTEÚDO PRINCIPAL ── */
+.main-content {
+    flex: 1;
+    padding: 40px 60px;
+    overflow-y: auto;
+}
+
+/* ── CABEÇALHO ── */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+}
+
+.header-title h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #09090b;
+    margin-bottom: 6px;
+}
+
+.header-title p {
+    font-size: 14px;
+    color: #71717a;
+}
+
+.badge-date {
+    font-size: 12px;
+    color: #71717a;
+    font-weight: 500;
+}
+
+/* ── 4 CARDS DE KPI NO TOPO ── */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px 24px;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.kpi-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: #09090b;
+    margin-bottom: 4px;
+}
+
+.kpi-sub {
+    font-size: 12px;
+    font-weight: 600;
+    color: #71717a;
+}
+
+/* Cores de Lucro / Prejuízo */
+.val-positive {
+    color: #16a34a !important;
+}
+
+.val-negative {
+    color: #dc2626 !important;
+}
+
+/* ── DESTAQUES DE TRADES (MEIO) ── */
+.trades-highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.highlight-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #e4e4e7;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #09090b;
+    margin-bottom: 16px;
+}
+
+.highlight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.highlight-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 10px;
+}
+
+.highlight-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.highlight-right {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.asset-avatar-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── TABELA DE FECHADAS ── */
+.table-container {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #e4e4e7;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* ── SELETOR DE VISTAS DA TABELA ── */
+.table-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-toggle-group {
+    display: inline-flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 10px;
+    gap: 4px;
+}
+
+.btn-toggle {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-toggle:hover {
+    color: #0f172a;
+}
+
+.btn-toggle.active {
+    background: #ffffff;
+    color: #003125;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.table-header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #09090b;
+    margin-bottom: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    text-align: right;
+    padding: 12px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #a1a1aa;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f4f4f5;
+}
+
+thead th:first-child {
+    text-align: left;
+}
+
+tbody td {
+    padding: 16px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #18181b;
+    text-align: right;
+    border-bottom: 1px solid #f4f4f5;
+}
+
+tbody td:first-child {
+    text-align: left;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Avatar do Ativo */
+.asset-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.asset-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f4f4f5;
+    color: #52525b;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e4e4e7;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.asset-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.asset-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #09090b;
+}
+
+.asset-class {
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a1aa;
+}
+
+.footer-note {
+    font-size: 12px;
+    color: #a1a1aa;
+    margin-top: 18px;
+    text-align: center;
+}

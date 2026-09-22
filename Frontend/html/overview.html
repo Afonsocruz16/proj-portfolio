@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProJ — Overview Global</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="../css/overview.css">
+</head>
+
+<body>
+
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-brand">ProJ</h2>
+            <p class="sidebar-sub">Carteira pessoal</p>
+        </div>
+
+        <nav class="sidebar-menu">
+            <a href="claude.html" class="sidebar-item">
+                <span class="item-text">Vista atual</span>
+            </a>
+
+            <a href="historico.html" class="sidebar-item">
+                <span class="item-text">Histórico</span>
+            </a>
+
+            <!-- OVERVIEW ATIVO -->
+            <a href="overview.html" class="sidebar-item active">
+                <span class="item-text">Overview</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-footer">
+            <a href="#definicoes" class="sidebar-item settings-item">
+                <span class="item-text">Definições</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- ── CONTEÚDO PRINCIPAL (DIREITA) ── -->
+    <div class="main-content">
+
+        <!-- CABEÇALHO -->
+        <header class="header">
+            <div class="header-title">
+                <h1>Overview Global</h1>
+                <p>Visão integrada da carteira: lucros realizados, ganhos latentes e evolução de sempre.</p>
+            </div>
+        </header>
+
+        <!-- ── 4 KPIS DE TOPO ── -->
+        <section class="kpi-grid">
+            <!-- KPI 1: Lucro Total Global -->
+            <div class="kpi-card">
+                <div class="kpi-label">P/L Total Global (All-Time)</div>
+                <div class="kpi-value" id="kpi-pl-total">0,00 €</div>
+                <div class="kpi-sub" id="kpi-pl-sub">Realizado + Latente</div>
+            </div>
+
+            <!-- KPI 2: Divisão de Lucro (Realizado vs Latente) -->
+            <div class="kpi-card">
+                <div class="kpi-label">Divisão do Lucro Total</div>
+                <div class="split-progress-container">
+                    <div class="split-bar">
+                        <div class="split-segment split-realized" id="split-bar-realized" style="width: 50%;"
+                            title="Realizado"></div>
+                        <div class="split-segment split-unrealized" id="split-bar-unrealized" style="width: 50%;"
+                            title="Latente"></div>
+                    </div>
+                    <div class="split-legend">
+                        <span><span class="dot dot-realized"></span> <strong id="split-val-realized">+0,00 €</strong> No
+                            Bolso</span>
+                        <span><span class="dot dot-unrealized"></span> <strong id="split-val-unrealized">+0,00
+                                €</strong> Em Aberto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI 3: Capital Total Alocado -->
+            <div class="kpi-card">
+                <div class="kpi-label">Capital Total Alocado</div>
+                <div class="kpi-value" id="kpi-capital-alocado">0,00 €</div>
+                <div class="kpi-sub" id="kpi-capital-sub">Compras ativas + fechadas</div>
+            </div>
+
+            <!-- KPI 4: Taxa de Ativos Lucrativos -->
+            <div class="kpi-card">
+                <div class="kpi-label">Ativos Positivos</div>
+                <div class="kpi-value" id="kpi-taxa-lucro">0%</div>
+                <div class="kpi-sub" id="kpi-taxa-sub">0 de 0 ativos com lucro líquido</div>
+            </div>
+        </section>
+
+        <!-- ── OS 2 GRÁFICOS ANALÍTICOS (MEIO) ── -->
+        <section class="charts-overview-grid">
+            <!-- Gráfico 1: Linha Temporal de Lucro Acumulado -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <h3 class="chart-title">Evolução do Lucro Acumulado</h3>
+                        <p class="chart-subtitle">Trajetória do P/L fechado ao longo do tempo (2023–2026)</p>
+                    </div>
+                    <div class="chart-badge-total" id="badge-total-acumulado">+0,00 €</div>
+                </div>
+                <div class="chart-canvas-container">
+                    <canvas id="chartEvolucaoLucro"></canvas>
+                </div>
+            </div>
+
+            <!-- Gráfico 2: Barras Empilhadas de Top Ativos -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <h3 class="chart-title">Top Ativos: Realizado vs Latente</h3>
+                        <p class="chart-subtitle">Contribuição combinada dos principais ativos</p>
+                    </div>
+                </div>
+                <div class="chart-canvas-container">
+                    <canvas id="chartTopAtivos"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── TABELA CENTRAL: RAIO-X DE ATIVOS ── -->
+        <main class="table-container">
+            <div class="table-header-flex">
+                <div class="table-title-group">
+                    <h2 class="table-title">Raio-X de Ativos</h2>
+                    <p class="table-subtitle">Interseção completa de posições ativas e histórico encerrado</p>
+                </div>
+                <!-- Filtros Rápidos -->
+                <div class="table-toggle-group">
+                    <button class="btn-toggle active" id="btn-filtro-todos" onclick="filtrarTabela('todos')">
+                        Todos <span class="badge-count" id="count-todos">0</span>
+                    </button>
+                    <button class="btn-toggle" id="btn-filtro-mistas" onclick="filtrarTabela('mista')">
+                        Mistas <span class="badge-count" id="count-mistas">0</span>
+                    </button>
+                    <button class="btn-toggle" id="btn-filtro-abertas" onclick="filtrarTabela('aberta')">
+                        Abertas <span class="badge-count" id="count-abertas">0</span>
+                    </button>
+                    <button class="btn-toggle" id="btn-filtro-fechadas" onclick="filtrarTabela('fechada')">
+                        Fechadas <span class="badge-count" id="count-fechadas">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ativo</th>
+                        <th>Estado</th>
+                        <th>Lucro Realizado</th>
+                        <th>Lucro Latente</th>
+                        <th>P/L Total</th>
+                        <th>Retorno Global (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-overview-body">
+                </tbody>
+            </table>
+        </main>
+
+        <div class="footer-note">
+            Dados agregados da carteira ProJ combinando posições ativas e transações encerradas.
+        </div>
+    </div>
+
+    <!-- Chart.js para os gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Utils -->
+    <script src="../js/utils.js"></script>
+    <!-- Lógica do Overview -->
+    <script src="../js/overview.js"></script>
+</body>
+
+</html>
