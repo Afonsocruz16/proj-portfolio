@@ -1,0 +1,14 @@
+AGENTS.md
+
+DATA/
+*.db
+*.xlsx
+*.csv
+
+
+__pycache__/
+*.pyc
+.venv/
+env/
+.DS_Store
+Thumbs.db
